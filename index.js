@@ -21,15 +21,16 @@ const data = XLSX.utils.sheet_to_json(worksheet, {
 
 // Convert the data to JSON format
 const enTranslations = {};
-const sgTranslations = {};
+const arTranslations = {};
 for (const row of data) {
   const key = row[keyColumn];
   const enTranslation = row[enColumn];
-  const sgTranslation = row[arColumn];
+  const arTranslation = row[arColumn];
   enTranslations[key] = enTranslation;
-  sgTranslations[key] = sgTranslation;
+  arTranslations[key] = arTranslation;
 }
 
 // Write the data to two separate JSON files
 fs.writeFileSync('en.json', JSON.stringify(enTranslations, null, 2));
-fs.writeFileSync('sg.json', JSON.stringify(sgTranslations, null, 2));
+fs.writeFileSync('ar.json', JSON.stringify(arTranslations, null, 2));
+fs.writeFileSync('qa.json', JSON.stringify(arTranslations, null, 2));
